@@ -1,0 +1,32 @@
+<!--
+    After you run `flutter create .` (see README.md), open:
+      android/app/src/main/AndroidManifest.xml
+
+    Find the <activity ...> tag for MainActivity and replace/merge its
+    attributes with the ones below. This locks the app to landscape
+    (matching the two-column design) and keeps the screen from sleeping
+    while the clock is open, which is expected for a bedside/desk clock
+    use case but does cost battery — remove keepScreenOn if you'd
+    rather it behave like a normal app.
+-->
+
+<activity
+    android:name=".MainActivity"
+    android:exported="true"
+    android:launchMode="singleTop"
+    android:theme="@style/LaunchTheme"
+    android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+    android:hardwareAccelerated="true"
+    android:windowSoftInputMode="adjustResize"
+    android:screenOrientation="landscape">
+    <!-- keep the rest of the existing intent-filter etc. as generated -->
+</activity>
+
+<!--
+    Optional: to keep the screen awake while this app is the foreground
+    activity (useful for a desk/bedside clock), add this permission
+    alongside the other <uses-permission> tags near the top of the
+    manifest, and call `Wakelock.enable()` if you add the `wakelock_plus`
+    package — not included by default to keep battery usage minimal.
+-->
+<!-- <uses-permission android:name="android.permission.WAKE_LOCK" /> -->
